@@ -15,9 +15,16 @@ jobs:
 
     steps:
       - uses: actions/checkout@v4
-      - run: |
+      - name: Clean install
+        run: |
           cd ./deploy-me-app
           npm ci
-      - run: |
+      - name: Build project
+        run: |
           cd ./deploy-me-app
-          npm run build --if-present
+          npm run build
+      - name: Set artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: DeployMeApp
+          path: ./deploy-me-app/dist/**
