@@ -16,6 +16,6 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - run: cd ./deploy-me-app
-      - run: npm ci --verbose
+      - run: npm ci --verbose --strict-peer-deps
       - run: npm run build --if-present
       - run: npm test
