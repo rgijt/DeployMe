@@ -15,7 +15,9 @@ jobs:
 
     steps:
       - uses: actions/checkout@v4
+        with:
+          GITHUB_WORKSPACE: /home/runner/work/DeployMe/DeployMe/deploy-me-app
       - run: cd ./deploy-me-app
-      - run: npm ci --verbose --strict-peer-deps
+      - run: npm ci
       - run: npm run build --if-present
       - run: npm test
