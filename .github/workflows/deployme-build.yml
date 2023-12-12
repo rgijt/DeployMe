@@ -18,5 +18,9 @@ jobs:
       - run: |
           cd ./deploy-me-app
           npm ci
-      - run: npm run build --if-present
-      - run: npm test
+      - run: |
+          cd ./deploy-me-app
+          npm run build --if-present
+      - run: |
+          cd ./deploy-me-app
+          npm test
